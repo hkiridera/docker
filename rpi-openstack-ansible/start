@@ -1,0 +1,7 @@
+docker run -it sfukazu/rpi-openstack-ansible /bin/bash
+
+cd /openstack-ansible
+scripts/bootstrap-ansible.sh
+cd /openstack-ansible/playbooks
+openstack-ansible setup-hosts.yml -vvv
+openstack-ansible setup-infrastructure.yml -vvv

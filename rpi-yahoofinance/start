@@ -1,0 +1,3 @@
+#docker-compose up -d
+#docker run --name fluentd -d  -p 24224:24224 -v /var/lib/docker/containers -v $PWD:/etc/fluent --link elasticsearch:elasticsearch sfukazu/rpi-fluentd
+docker run --name fluentd -d  -p 24224:24224 -v /var/lib/docker/containers -v $PWD:/etc/fluent sfukazu/rpi-fluentd

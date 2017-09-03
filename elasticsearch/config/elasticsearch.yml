@@ -1,0 +1,11 @@
+network.host: 0.0.0.0
+network.publish_host: 192.168.12.20
+cluster.name: rpi-cluster
+index.number_of_shards: 2
+index.number_of_replicas: 1
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: [ "192.168.12.20:9300" ,  "192.168.12.21:9300" ]
+index.analysis.analyzer.default.type: custom
+#index.analysis.analyzer.default.tokenizer: kuromoji_tokenizer
+index.analysis.analyzer.default.tokenizer: kuromoji_neologd_tokenizer

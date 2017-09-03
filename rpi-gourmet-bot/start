@@ -1,0 +1,1 @@
+docker run -it -d --name sedori-bot --link some-mysql sfukazu/rpi-sedori-bot /bin/bash

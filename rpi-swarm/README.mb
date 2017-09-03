@@ -1,0 +1,21 @@
+# docker 停止(全台)
+service docker stop
+# docker 起動(全台)
+docker daemon -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock &
+
+# Swarm のインストール
+
+swarm イメージを pull してくる(全台)
+docker pull hypriot/rpi-swarm:latest
+
+# クラスタを作成(1台)
+docker run --rm hypriot/rpi-swarm create
+
+# Swarm エージェントの起動(全台)
+docker run -d hypriot/rpi-swarm join --addr=192.168.12.9:2375  token://0d8188ef1c9d72c97e92127cd3101609
+docker run -d hypriot/rpi-swarm join --addr=192.168.12.10:2375 token://0d8188ef1c9d72c97e92127cd3101609
+docker run -d hypriot/rpi-swarm join --addr=192.168.12.7:2375  token://0d8188ef1c9d72c97e92127cd3101609
+docker run -d hypriot/rpi-swarm join --addr=192.168.12.17:2375 token://0d8188ef1c9d72c97e92127cd3101609
+
+# Swarm マネージャを起動(1台)
+docker run -d -p 2377:2375 hypriot/rpi-swarm manage token://0d8188ef1c9d72c97e92127cd3101609

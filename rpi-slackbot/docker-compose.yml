@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  slackbot:
+    restart: always
+    image: sfukazu/rpi-slackbot:latest

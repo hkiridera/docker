@@ -1,0 +1,1 @@
+* 0 * * * curator --host localhost delete indices --prefix twitter- --older-than 30

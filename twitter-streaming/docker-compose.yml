@@ -1,0 +1,12 @@
+norikra:
+  image: minimum2scp/norikra
+  ports:
+   - "26571:26571"
+   - "26578:26578"
+
+fluentd:
+  image: sfukazu/fluentd_twitter-streaming
+  ports:
+   - "24224:24224"
+  links:
+   - norikra

@@ -1,0 +1,12 @@
+# Ci Runner
+GitlabCIMultiRunner:
+  image: sameersbn/gitlab-ci-multi-runner
+  volumes:
+    - /srv/docker/gitlab-runner:/home/gitlab_ci_multi_runner/data
+    - /etc/localtime:/etc/localtime:ro
+  environment:
+    - CI_SERVER_URL=http://192.168.12.19:10080/ci
+    - RUNNER_TOKEN=LpJy5T7k6y7_s2CXzRSg
+    - RUNNER_DESCRIPTION=runnner
+    - RUNNER_EXECUTOR=shell
+  restart: always
